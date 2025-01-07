@@ -1,33 +1,86 @@
 import 'package:flutter/material.dart';
 
 class AlertScreen extends StatelessWidget {
-  const AlertScreen({super.key});
+  const AlertScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      backgroundColor: Colors.white,
+      body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'ALERTA',
-              style: TextStyle(
-                  fontSize: 34,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.red[800]),
+            const Expanded(
+              child: Center(
+                child: Text(
+                  'ALERTA!!',
+                  style: TextStyle(
+                    color: Color(0xFFD32F2F),
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
-            SizedBox(height: 20),
-            FilledButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Llamar a emergencias'),
-              style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all(Colors.green[600]),
-                padding: WidgetStateProperty.all(EdgeInsets.all(20)),
-                shape: WidgetStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10))),
-                alignment: Alignment.center,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 80.0),
+              child: Column(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      // Add emergency call functionality here
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF00A884),
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32,
+                        vertical: 16,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    child: const Text(
+                      'Llamar a emergencias',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 20,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF00A884),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      ),
+                      Container(
+                        width: 8,
+                        height: 8,
+                        margin: const EdgeInsets.symmetric(horizontal: 4),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                      Container(
+                        width: 8,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ],

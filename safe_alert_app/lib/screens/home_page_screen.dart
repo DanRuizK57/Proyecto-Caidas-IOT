@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safe_alert_app/screens/alert_screen.dart';
 import 'package:safe_alert_app/screens/map_screen.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -41,6 +42,14 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(width: 8),
             ],
           ),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AlertScreen()),
+                );
+              },
+              child: Text('Alerta')),
         ],
       ),
     );
